@@ -1,3 +1,5 @@
+package org.example;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -96,9 +98,7 @@ public class DocumentManager {
         }
 
         if (request.getCreatedTo() != null) {
-            if (document.getCreated().isAfter(request.getCreatedTo())) {
-                return false;
-            }
+            return !document.getCreated().isAfter(request.getCreatedTo());
         }
 
         return true;
